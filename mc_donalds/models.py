@@ -17,22 +17,21 @@ class Product(models.Model):
     # composition = models.TextField(default='Состав не указан')
 
 
-director = 'DI'
-admin = 'AD'
-cook = 'CO'
-cashier = 'CA'
-cleaner = 'CL'
-
-POSITIONS = [
-    (director, 'Директор'),
-    (admin, 'Администратор'),
-    (cook, 'Повар'),
-    (cashier, 'Кассир'),
-    (cleaner, 'Уборщик')
-]
-
-
 class Staff(models.Model):
+    director = 'DI'
+    admin = 'AD'
+    cook = 'CO'
+    cashier = 'CA'
+    cleaner = 'CL'
+
+    POSITIONS = [
+        (director, 'Директор'),
+        (admin, 'Администратор'),
+        (cook, 'Повар'),
+        (cashier, 'Кассир'),
+        (cleaner, 'Уборщик')
+    ]
+
     full_name = models.CharField(max_length=255)
     position = models.CharField(max_length=2, choices=POSITIONS, default=cashier)
     labor_contract = models.IntegerField()
